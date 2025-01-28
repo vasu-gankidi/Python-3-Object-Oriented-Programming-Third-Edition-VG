@@ -1,0 +1,11 @@
+5
+4
+c
+b
+a
+5
+4
+c
+b
+a
+5 4 c b a 5 4 c b a 5 4 c b a 5 4 c b a,d,f 5 4 c b a 5 4 c b a 
