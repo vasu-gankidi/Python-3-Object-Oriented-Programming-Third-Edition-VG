@@ -56,8 +56,9 @@ def SortArrayBruteFrce(List):
 SortArrayBruteFrce([5,4,3,2,1])
 
 # # All possible permutation of given string.
-# print("***********BackTracking**************")
-
+print("***********BackTracking**************")
+#TODO vgankidi - write a prototype for recursion and back tracking algo.
+# once understood, try with this problem set.
 # def recurPermute(index, s, ans):
 
 #     # Base Case
@@ -159,10 +160,74 @@ for item in InList:
 # 192.168.0.1 -example. [proof] 
 # 192.01.00.1 - claim is false. All examples. 
 
-# What's the output of this snippet? 
-list1 = [1, 2, 3] , list2 = [4, 5, 6] 
+# What's the output of this snippet?
+# https://www.freecodecamp.org/news/python-lambda-function-explained/
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
 result = list(map(lambda x, y: x + y, list1, list2))
-print(result)
+# If we assign a function to a variable either a anonymos function
+# or function defined using def keyword. We can use that variable
+# to pass function as an arugment to another functions. This makes
+# code more readable?.
+alist1= (lambda x,y : x.append(y)) # append the list2 to list1.
 
+alist1(list1,list2) # here we can use the lamdba implementation as a function.
+print(result)  # prints 5,7,6
+print(alist1) # prints [1,2,3,4,5,6]
+
+
+# List in Python Elements of expressions.
+# extended BNF notation <-> describe syntax.
+# walrus operator ":". And slicing start, stop, step.
+# Assign the variable after evaluating expression. useful in condition
+# checking, list comprehension.
 d = {x:x[::-1] for x in ["abc","xyx"]}
 print(d)
+
+# List comprehension -
+# use it to filter, format, modify, or do other small tasks on 
+# existing iterables such as strings, tuples, sets, dataframes, array lists.
+
+# Simple list comprehension****
+# List comprehension with single and nested if conditions****
+# List comprehension with single and multiple if and else conditions****
+# List comprehension with nested for loops****
+lst=[0,2,3,4,5,6,8,10]
+['Two' if x%2 == 0 else "Three" if x%3 == 0 else 'not 2 & 3' for x in lst]
+['Two' if x%2 == 0 else "Three" if x%3 == 0 else 'not 2 & 3' for x in lst if x > 8]
+
+# FizzBuzz with List comprehension
+#What is the Python Fizzbuzz?
+#Assume we have a number n. Then we have to display all numbers ranging from 1 to n in string representation, but there are few restrictions on how we can show those numbers.
+
+#If the number is divisible by three, substitute Fizz for the number.
+#If the number is divisible by 5, substitute Buzz for the number.
+#If the number is divisible by 3 and 5, substitute FizzBuzz for the integer.
+def Fizzbuzz(n):
+    out=[]
+    for i in range(1,n+1):
+        if i % 3 and i % 5 == 0:
+            out.append("FizzBuzz")
+        elif i % 5 == 0:
+            out.append("Buzz")
+        elif i % 3 == 0:
+            out.append("Fizz")
+        else:
+            out.append(str(i))
+    return "".join(out) # str="" , return str.join(out)
+
+
+if __name__ == "__main__":
+    print(Fizzbuzz(5))
+
+# Use List comprehension - FizzBuzz Challenge 1 line
+# walk through like a debugger line by line.
+out = ["FizzBuzz" if i%3==0 and i%5==0 else "Buzz" if i%5 == 0 else "Fizz" if i% 3 == 0 else str(i) for i in range(1,6)]
+print("".join(out))
+
+# TODO@vgankidi - use lambda function and walrus operator with List comprehensions
+
+# List comprehension with nested for loops****
+Li=[1,2]
+PosPerm = [(x,y) for x in Li for y in Li]
+print(PosPerm)
